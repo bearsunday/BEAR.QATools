@@ -1,0 +1,28 @@
+{
+  "name": "bear/qatools",
+  "keywords": [
+    "php",
+    "qa"
+  ],
+  "license": "MIT",
+  "description": "PHP QA Tools",
+  "require": {
+      "covex-nn/phpcb": "*",
+      "fabpot/php-cs-fixer": "*",
+      "apigen/apigen": "~4.0@dev",
+      "phpmd/phpmd": "dev-master",
+      "phpunit/phpunit": "*",
+      "squizlabs/php_codesniffer": "*",
+      "sebastian/phpcpd": "*",
+      "mayflower/php-codebrowser": "*",
+      "sensiolabs/security-checker": "*",
+      "phploc/phploc": "*"
+  },
+      "minimum-stability": "dev",
+      "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
+}

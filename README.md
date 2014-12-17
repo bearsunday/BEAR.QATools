@@ -1,6 +1,6 @@
 # bear/qatools
 
-Collection of common used php QA tools.
+Collection of commonly used php QA tools.
 
 Included in this package are:
 

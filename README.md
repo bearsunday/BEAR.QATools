@@ -31,6 +31,4 @@ Included in this package are:
 
 ## local
 
-To use this package, add it as as "dev" dependency with this command:
-
     $ composer require bear/qatools

@@ -16,16 +16,21 @@ Included in this package are:
 
 # Installation
 
+## ~/.compser/composer.json
+
+```
+{
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+}
+```
+
 ## global
 
-    $ composer global require bear/qatools phpmd/phpmd:@dev apigen/apigen:@dev
+    $ composer global require bear/qatools
 
 ## local
 
 To use this package, add it as as "dev" dependency with this command:
 
-    $ composer require bear/qatools phpmd/phpmd:@dev apigen/apigen:@dev --dev
-
-More info about development dependencies: http://getcomposer.org/doc/04-schema.md#require-dev
-
-** @dev are requited for phpmd and apigen to fix recent issues.
+    $ composer require bear/qatools

@@ -21,7 +21,7 @@ Included in this package are:
 ```
 {
     "minimum-stability": "dev",
-    "prefer-stable": true,
+    "prefer-stable": true
 }
 ```
 

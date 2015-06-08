@@ -51,7 +51,9 @@ php-cs-fixer
 phpcs
 
     vendor/bin/phpcs --standard=./phpcs.xml src
-
+    vendor/bin/phpcs --standard=./phpcs.xml --warning-severity=false src
+    vendor/bin/phpcs --standard=vendor/bear/qatools/phpcs.xml --warning-severity=false src
+    
 ### per deploy
 
 security-checker

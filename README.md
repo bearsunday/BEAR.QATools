@@ -16,7 +16,10 @@ Included in this package are:
 
 # Installation
 
-## ~/.compser/composer.json
+
+## global
+
+update `~/.compser/composer.json`
 
 ```
 {
@@ -25,10 +28,53 @@ Included in this package are:
 }
 ```
 
-## global
-
-    $ composer global require bear/qatools
+    composer global require bear/qatools
 
 ## local
 
-    $ composer require bear/qatools
+    composer require bear/qatools
+
+# Usage
+
+### development
+
+phpunit
+
+    vendor/bin/phpunit
+
+### per commit
+
+php-cs-fixer
+
+    vendor/bin/php-cs-fixer fix
+
+phpcs
+
+    vendor/bin/phpcs --standard=./phpcs.xml src
+
+### per deploy
+
+security-checker
+
+    vendor/bin/security-checker security:check
+
+### code quality
+
+phploc
+
+    vendor/bin/phploc src
+    
+phpcpd    
+
+    vendor/bin/phpcpd src
+
+### documentation
+
+apigen
+
+    vendor/bin/apigen generate -s src -d build/api
+    
+phpcb
+
+    vendor/bin/phpcb -s src -o build/code-browser
+

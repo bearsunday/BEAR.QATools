@@ -9,8 +9,8 @@
   "require": {
       "covex-nn/phpcb": "*",
       "fabpot/php-cs-fixer": "*",
-      "apigen/apigen": "~4.0@dev",
-      "phpmd/phpmd": "dev-master",
+      "apigen/apigen": "*",
+      "phpmd/phpmd": "*",
       "phpunit/phpunit": "*",
       "squizlabs/php_codesniffer": "*",
       "sebastian/phpcpd": "*",

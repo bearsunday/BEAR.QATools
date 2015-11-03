@@ -7,7 +7,6 @@
   "license": "MIT",
   "description": "PHP QA Tools",
   "require": {
-      "covex-nn/phpcb": "*",
       "fabpot/php-cs-fixer": "*",
       "apigen/apigen": "*",
       "phpmd/phpmd": "*",

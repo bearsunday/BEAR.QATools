@@ -11,7 +11,7 @@
       "apigen/apigen": "*",
       "phpmd/phpmd": "*",
       "phpunit/phpunit": "*",
-      "phpunit/php-code-coverage": "dev-master#b8436b000263f6d72fbad1d36890e247ce84857e",
+      "phpunit/php-code-coverage": "*",
       "squizlabs/php_codesniffer": "*",
       "sebastian/phpcpd": "*",
       "mayflower/php-codebrowser": "*",

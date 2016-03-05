@@ -16,7 +16,8 @@
       "sebastian/phpcpd": "*",
       "mayflower/php-codebrowser": "*",
       "sensiolabs/security-checker": "*",
-      "phploc/phploc": "*"
+      "phploc/phploc": "*",
+      "symfony/event-dispatcher": "~2.3"
   },
       "minimum-stability": "dev",
       "prefer-stable": true,

@@ -7,7 +7,7 @@
   "license": "MIT",
   "description": "PHP QA Tools",
   "require": {
-      "fabpot/php-cs-fixer": "*",
+      "friendsofphp/php-cs-fixer": "*",
       "apigen/apigen": "*",
       "phpmd/phpmd": "*",
       "phpunit/phpunit": "*",

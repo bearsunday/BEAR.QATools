@@ -15,8 +15,7 @@
       "squizlabs/php_codesniffer": "~2.6",
       "sebastian/phpcpd": "~2.0",
       "mayflower/php-codebrowser": "~1.1",
-      "phploc/phploc": "~3.0",
-      "sensiolabs/security-checker": "dev-master"
+      "phploc/phploc": "~3.0"
   },
       "minimum-stability": "dev",
       "prefer-stable": true,

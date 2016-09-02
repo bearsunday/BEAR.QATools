@@ -17,20 +17,11 @@ Included in this package are:
 # Installation
 
 
-## global
-
-update `~/.compser/composer.json`
-
-```
-{
-    "minimum-stability": "dev",
-    "prefer-stable": true
-}
-```
+Global install
 
     composer global require bear/qatools
 
-## local
+Local install
 
     composer require bear/qatools
 

@@ -7,19 +7,18 @@
   "license": "MIT",
   "description": "PHP QA Tools",
   "require": {
-      "php": ">=5.6.0",
-      "friendsofphp/php-cs-fixer": "~1.9",
-      "apigen/apigen": "~4.1",
-      "phpmd/phpmd": "~2.4",
-      "phpunit/phpunit": "~4.8|~5.7|~6.0",
-      "phpunit/php-code-coverage": "~4.0",
-      "squizlabs/php_codesniffer": "~2.6",
-      "sebastian/phpcpd": "~2.0",
-      "mayflower/php-codebrowser": "~1.1",
-      "phploc/phploc": "~3.0"
+    "php": ">=5.6.0",
+    "friendsofphp/php-cs-fixer": "~1.9",
+    "apigen/apigen": "~4.1",
+    "phpmd/phpmd": "~2.4",
+    "phpunit/phpunit": "~5.7|~6.0",
+    "phpunit/php-code-coverage": "~4.0",
+    "squizlabs/php_codesniffer": "~2.6",
+    "sebastian/phpcpd": "~2.0",
+    "mayflower/php-codebrowser": "~1.1",
+    "phploc/phploc": "~3.0",
+    "doctrine/common": "^2.7"
   },
-      "minimum-stability": "dev",
-      "prefer-stable": true,
   "extra": {
     "branch-alias": {
       "dev-master": "1.0.x-dev"

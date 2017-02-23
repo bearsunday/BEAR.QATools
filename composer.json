@@ -11,7 +11,7 @@
       "friendsofphp/php-cs-fixer": "~1.9",
       "apigen/apigen": "~4.1",
       "phpmd/phpmd": "~2.4",
-      "phpunit/phpunit": "~5.5|~4.8",
+      "phpunit/phpunit": "~4.8|~5.7|~6.0",
       "phpunit/php-code-coverage": "~4.0",
       "squizlabs/php_codesniffer": "~2.6",
       "sebastian/phpcpd": "~2.0",

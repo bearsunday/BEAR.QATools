@@ -32,12 +32,27 @@ Local install
     cp vendor/bear/qatools/phpmd.xml .
     cp vendor/bear/qatools/.php_cs.dist .php_cs
 
+for CI web service
+
+	cp vendor/bear/qatools/.travis.yml .
+	cp vendor/bear/qatools/.scrutinizer.yml .
+
 # Usage
 
 ### All
 `phpcs`, `phpmd`, `phpunit`,  `php-cs-fixer`, `pdepend`, `phploc`, `apigen` and `php-cs-fixer` will be executed in order. This is the ideal for CI.
 
-    vendor/bin/phpbuild
+global  
+
+```
+~/.composer/vendor/bin/phpbuild  
+```
+
+local
+
+```
+vendor/bin/phpbuild
+```
 
 Since `php-cs-fixer` only issues a warning, please modify the code with `php-cs-fixer fix src` command if necessary.
 
@@ -51,6 +66,9 @@ phpunit
 
     vendor/bin/phpunit
 
+phpunit + phpmd + phpcs + php-cs-fixer
+
+    vendor/bin/phptest
 ### per commit
 
 php-cs-fixer

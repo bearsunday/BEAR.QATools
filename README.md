@@ -37,7 +37,7 @@ for CI web service
 	cp vendor/bear/qatools/.travis.yml .
 	cp vendor/bear/qatools/.scrutinizer.yml .
 	
-When using file header, Editing of the header section is necessary in`.php_cs`.
+When using file header, You need to edit the header section in`.php_cs`.
 
 ```php
 $header = <<<'EOF'
@@ -53,7 +53,8 @@ Place edit the header text then uncomment `header_comment` section.
 //        'header_comment' => ['header' => $header, 'commentType' => 'comment', 'separate' => 'none'],
 ```
 
-Akthough all configs are based on what is used in the standard, please change as necessary.
+Although I tried to set config as based on what is used in the standard,
+Please change on demand.
 
 * [phpunit.xml](https://phpunit.de/manual/current/en/index.html)
 * [phpcs.xml](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml)

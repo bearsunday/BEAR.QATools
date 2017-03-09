@@ -25,7 +25,7 @@ Local install
 
     composer require bear/qatools
 
-# Place config files
+# Config
 
     cp vendor/bear/qatools/phpunit.xml.dist phpunit.xml 
     cp vendor/bear/qatools/phpcs.xml .
@@ -36,6 +36,32 @@ for CI web service
 
 	cp vendor/bear/qatools/.travis.yml .
 	cp vendor/bear/qatools/.scrutinizer.yml .
+	
+When using file header, Editing of the header section is necessary in`.php_cs`.
+
+```php
+$header = <<<'EOF'
+This file is part of the __PACKAGE__ package.
+
+@license http://opensource.org/licenses/MIT MIT
+EOF;
+```
+
+Place edit the header text then uncomment `header_comment` section.
+
+```php
+//        'header_comment' => ['header' => $header, 'commentType' => 'comment', 'separate' => 'none'],
+```
+
+Akthough all configs are based on what is used in the standard, please change as necessary.
+
+* [phpunit.xml](https://phpunit.de/manual/current/en/index.html)
+* [phpcs.xml](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml)
+* [phpmd.xml](https://phpmd.org/documentation/creating-a-ruleset.html)
+* [phpunit.xml](https://phpunit.de/manual/current/en/index.html)
+* [.php_cs](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+* [.travis.yml](https://docs.travis-ci.com/user/customizing-the-build)
+* [.scrutinizer.yml](https://scrutinizer-ci.com/docs/guides/php/)
 
 # Usage
 

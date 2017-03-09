@@ -8,7 +8,7 @@ passthru("phpcs --report=checkstyle --report-file=./build/logs/checkstyle.xml --
 echo '[phpmd]' . PHP_EOL;
 passthru("phpmd src text ./phpmd.xml");
 echo '[phpunit]' . PHP_EOL;
-passthru("phpunit --coverage-html build/coverage --coverage-clover build/logs/clover.xml --log-junit --stop-on-incomplete=false");
+passthru("phpunit --coverage-html build/coverage --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml");
 echo '[apigen]' . PHP_EOL;
 passthru("php " . __DIR__ . "/apigen.phar generate -s src -d build/api");
 echo '[pdepend]' . PHP_EOL;

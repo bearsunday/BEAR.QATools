@@ -25,8 +25,26 @@ Local install
 
     composer require bear/qatools
 
+# Place config files
+
+    cp vendor/bear/qatools/phpunit.xml.dist phpunit.xml 
+    cp vendor/bear/qatools/phpcs.xml .
+    cp vendor/bear/qatools/phpmd.xml .
+    cp vendor/bear/qatools/.php_cs.dist .php_cs
+
 # Usage
 
+### All
+`phpcs`, `phpmd`, `phpunit`,  `php-cs-fixer`, `pdepend`, `phploc`, `apigen` and `php-cs-fixer` will be executed in order. This is the ideal for CI.
+
+    vendor/bin/phpbuild
+
+Since `php-cs-fixer` only issues a warning, please modify the code with `php-cs-fixer fix src` command if necessary.
+
+    
+# Individual execution
+
+    
 ### development
 
 phpunit
@@ -37,7 +55,7 @@ phpunit
 
 php-cs-fixer
 
-    vendor/bin/php-cs-fixer fix
+    vendor/bin/php-cs-fixer fix src
 
 phpcs
 

@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+chdir(getcwd());
+
+echo '[phpunit]' . PHP_EOL;
+passthru("phpunit --coverage-html build/coverage --coverage-clover build/logs/clover.xml --log-junit --stop-on-incomplete=false");
+echo '[phpcs]' . PHP_EOL;
+passthru("phpcs --report=checkstyle --report-file=./build/logs/checkstyle.xml --standard=phpcs.xml src");
+echo '[phpmd]' . PHP_EOL;
+passthru("phpmd src text ./phpmd.xml");
+echo '[php-cs-fixer]' . PHP_EOL;
+passthru("php-cs-fixer fix src --dry-run -v");

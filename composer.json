@@ -18,5 +18,8 @@
     "phploc/phploc": "^3.0",
     "doctrine/common": "^2.7"
   },
-  "bin": ["bin/apigen.phar"]
+  "bin": [
+    "bin/apigen.phar",
+    "bin/phpbuild"
+  ]
 }

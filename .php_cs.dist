@@ -30,7 +30,7 @@ return \PhpCsFixer\Config::create()
         'heredoc_to_nowdoc' => true,
         'include' => true,
         'indentation_type' => true,
-        'is_null' => ['use_yoda_style' => false],
+//        'is_null' => ['use_yoda_style' => false],
         'linebreak_after_opening_tag' => true,
         'lowercase_cast' => true,
 //        'mb_str_functions' => true,

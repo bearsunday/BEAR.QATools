@@ -7,7 +7,6 @@
   "license": "MIT",
   "description": "PHP QA Tools",
   "require": {
-    "php": ">=5.6.0",
     "friendsofphp/php-cs-fixer": "*",
     "phpmd/phpmd": "*",
     "phpunit/phpunit": "*",

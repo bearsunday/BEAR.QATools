@@ -4,10 +4,10 @@
 chdir(getcwd());
 
 echo '[phpunit]' . PHP_EOL;
-passthru("phpunit --coverage-html build/coverage --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml");
+passthru("./vendor/bin/phpunit --coverage-html build/coverage --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml");
 echo '[phpcs]' . PHP_EOL;
-passthru("phpcs --report=checkstyle --report-file=./build/logs/checkstyle.xml --standard=phpcs.xml src");
+passthru("./vendor/bin/phpcs --report=checkstyle --report-file=./build/logs/checkstyle.xml --standard=phpcs.xml src");
 echo '[phpmd]' . PHP_EOL;
-passthru("phpmd src text ./phpmd.xml");
+passthru("./vendor/bin/phpmd src text ./phpmd.xml");
 echo '[php-cs-fixer]' . PHP_EOL;
-passthru("php-cs-fixer fix src --dry-run -v");
+passthru("./vendor/bin/php-cs-fixer fix src --dry-run -v");

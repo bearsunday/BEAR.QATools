@@ -7,15 +7,13 @@
   "license": "MIT",
   "description": "PHP QA Tools",
   "require": {
-    "friendsofphp/php-cs-fixer": "*",
-    "phpmd/phpmd": "*",
-    "phpunit/phpunit": "*",
-    "phpunit/php-code-coverage": "*",
-    "squizlabs/php_codesniffer": "*",
-    "sebastian/phpcpd": "*",
-    "mayflower/php-codebrowser": "*",
-    "phploc/phploc": "*",
-    "doctrine/common": "*"
+    "friendsofphp/php-cs-fixer": "^2.0",
+    "phpmd/phpmd": "^2.6",
+    "phpunit/phpunit": "^5.7|^6.0",
+    "squizlabs/php_codesniffer": "^2.8",
+    "sebastian/phpcpd": "^2.0|^3.0",
+    "mayflower/php-codebrowser": "^1.1",
+    "phploc/phploc": "^3.0"
   },
   "bin": [
     "bin/apigen.phar",

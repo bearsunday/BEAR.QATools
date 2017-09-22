@@ -3,6 +3,8 @@
 
 chdir(getcwd());
 passthru("rm -rf ./build; mkdir -p ./build/logs ./build/pdepend ./build/api");
+echo '[php-cs-fixer]' . PHP_EOL;
+passthru(__DIR__ . "/php-cs-fixer fix src --dry-run -v");
 echo '[phpcs]' . PHP_EOL;
 passthru("./vendor/bin/phpcs --report=checkstyle --report-file=./build/logs/checkstyle.xml --standard=phpcs.xml src");
 echo '[phpmd]' . PHP_EOL;
@@ -16,5 +18,3 @@ echo '[pdepend]' . PHP_EOL;
 passthru("./vendor/bin/pdepend --jdepend-xml=./build/logs/jdepend.xml --jdepend-chart=./build/pdepend/dependencies.svg --overview-pyramid=./build/pdepend/overview-pyramid.svg src");
 echo '[phploc]' . PHP_EOL;
 passthru("./vendor/bin/phploc --count-tests --log-csv ./build/logs/phploc.csv src");
-echo '[php-cs-fixer]' . PHP_EOL;
-passthru("./vendor/bin/php-cs-fixer fix src --dry-run -v");

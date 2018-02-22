@@ -115,6 +115,10 @@ security-checker
 
 ### code quality
 
+phpstan
+
+    vendor/bin/phpstan analyse -l max src
+
 phploc
 
     vendor/bin/phploc src

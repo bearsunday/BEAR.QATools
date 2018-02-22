@@ -13,7 +13,8 @@
     "squizlabs/php_codesniffer": "^2.8|^3.2",
     "sebastian/phpcpd": "^2.0|^3.0",
     "mayflower/php-codebrowser": "^1.1",
-    "phploc/phploc": "^3.0|^4.0"
+    "phploc/phploc": "^3.0|^4.0",
+    "phpstan/phpstan-shim": "^0.9"
   },
   "bin": [
     "bin/apigen.phar",

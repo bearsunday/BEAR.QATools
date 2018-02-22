@@ -13,6 +13,7 @@ Included in this package are:
 * [covex-nn/phpcb](https://github.com/covex-nn/PHP_CodeBrowser) A code browser that augments the code with information from various QA tools.
 * [apigen/apigen](https://github.com/apigen/apigen) PHP source code API generator
 * [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker) PHP frontend for security.sensiolabs.org
+* [phpstan/phpstan](https://github.com/phpstan/phpstan) PHP Static Analysis Tool
 
 # Installation
 

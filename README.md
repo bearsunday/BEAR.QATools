@@ -13,9 +13,9 @@ Included in this package are:
 * [covex-nn/phpcb](https://github.com/covex-nn/PHP_CodeBrowser) A code browser that augments the code with information from various QA tools.
 * [apigen/apigen](https://github.com/apigen/apigen) PHP source code API generator
 * [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker) PHP frontend for security.sensiolabs.org
+* [phpstan/phpstan](https://github.com/phpstan/phpstan) PHP Static Analysis Tool
 
 # Installation
-
 
 Global install
 
@@ -116,6 +116,10 @@ security-checker
 
 ### code quality
 
+phpstan
+
+    vendor/bin/phpstan analyse -l max src
+
 phploc
 
     vendor/bin/phploc src
@@ -128,7 +132,7 @@ phpcpd
 
 apigen
 
-    vendor/bin/apigen generate -s src -d build/api
+    vendor/bin/apigen.phar generate -s src -d build/api
     
 phpcb
 

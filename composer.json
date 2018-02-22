@@ -9,7 +9,7 @@
   "require": {
     "friendsofphp/php-cs-fixer": "^2.10",
     "phpmd/phpmd": "^2.6",
-    "phpunit/phpunit": "^5.7|^6.5",
+    "phpunit/phpunit": "^5.7|^6.5|^7.0",
     "squizlabs/php_codesniffer": "^2.8|^3.2",
     "sebastian/phpcpd": "^2.0|^3.0",
     "mayflower/php-codebrowser": "^1.1",

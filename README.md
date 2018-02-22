@@ -16,7 +16,6 @@ Included in this package are:
 
 # Installation
 
-
 Global install
 
     composer global require bear/qatools
@@ -128,7 +127,7 @@ phpcpd
 
 apigen
 
-    vendor/bin/apigen generate -s src -d build/api
+    vendor/bin/apigen.phar generate -s src -d build/api
     
 phpcb
 

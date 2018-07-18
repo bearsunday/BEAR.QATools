@@ -11,3 +11,7 @@ echo '[phpmd]' . PHP_EOL;
 passthru("./vendor/bin/phpmd src text ./phpmd.xml");
 echo '[php-cs-fixer]' . PHP_EOL;
 passthru("./vendor/bin/php-cs-fixer fix src --dry-run -v");
+echo '[phpstan]' . PHP_EOL;
+passthru("./vendor/bin/phpstan analyse -l max src tests -c phpstan.neon --no-progress");
+echo '[psalm]' . PHP_EOL;
+passthru("./vendor/bin/psalm");

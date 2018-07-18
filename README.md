@@ -94,7 +94,7 @@ phpunit
 
     vendor/bin/phpunit
 
-phpunit + phpmd + phpcs + php-cs-fixer
+phpunit + phpmd + phpcs + php-cs-fixer + phpstan + psalm
 
     vendor/bin/phptest
 ### per commit

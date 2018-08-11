@@ -19,7 +19,6 @@
   },
   "bin": [
     "bin/apigen.phar",
-    "bin/php-cs-fixer",
     "bin/phpbuild",
     "bin/phptest"
   ]

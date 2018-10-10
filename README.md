@@ -35,8 +35,8 @@ Local install
 
 for CI web service
 
-	cp vendor/bear/qatools/.travis.yml .
-	cp vendor/bear/qatools/.scrutinizer.yml .
+    cp vendor/bear/qatools/.travis.yml .
+    cp vendor/bear/qatools/.scrutinizer.yml .
 
 When using file header, You need to edit the header section in`.php_cs`.
 
@@ -68,6 +68,7 @@ Please change on demand.
 # Usage
 
 ### All
+
 `phpcs`, `phpmd`, `phpunit`,  `php-cs-fixer`, `pdepend`, `phploc`, `apigen` and `php-cs-fixer` will be executed in order. This is the ideal for CI.
 
 global
@@ -84,9 +85,7 @@ vendor/bin/phpbuild
 
 Since `php-cs-fixer` only issues a warning, please modify the code with `php-cs-fixer fix src` command if necessary.
 
-
 # Individual execution
-
 
 ### development
 
@@ -97,6 +96,7 @@ phpunit
 phpunit + phpmd + phpcs + php-cs-fixer + phpstan + psalm
 
     vendor/bin/phptest
+
 ### per commit
 
 php-cs-fixer
@@ -142,4 +142,3 @@ apigen
 phpcb
 
     vendor/bin/phpcb -s src -o build/code-browser
-

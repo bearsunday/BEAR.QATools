@@ -16,4 +16,4 @@ passthru("./vendor/bin/phpstan analyse -l max src tests -c phpstan.neon --no-pro
 echo '[psalm]' . PHP_EOL;
 passthru("./vendor/bin/psalm");
 cho '[phpmetrics]' . PHP_EOL;
-passthru("./vendor/bin/phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml");
+passthru("./vendor/bin/phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml --report-csv=build/logs/phpmetrics.csv --report-violations=build/logs/violations.xml");

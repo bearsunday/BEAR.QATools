@@ -8,6 +8,7 @@
   "description": "PHP QA Tools",
   "require": {
     "php": " >=7.0 <7.3",
+    "friendsofphp/php-cs-fixer": "^2.13",
     "phpmd/phpmd": "^2.6",
     "phpunit/phpunit": "^6.5|^7.0",
     "squizlabs/php_codesniffer": "^3.3",

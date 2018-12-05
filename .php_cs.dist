@@ -11,9 +11,6 @@ EOF;
 
 $finder = PhpCsFixer\Finder::create()
     ->exclude(['tests/Fake', 'tests/tmp'])
-    ->exclude('vendor')
-    ->ignoreDotFiles(true)
-    ->ignoreVCS(true);
     ->in(__DIR__);
 
 return \PhpCsFixer\Config::create()

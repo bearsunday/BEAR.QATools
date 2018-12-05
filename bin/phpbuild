@@ -4,5 +4,3 @@
 chdir(getcwd());
 passthru("rm -rf ./build; mkdir -p ./build/logs ./build/pdepend ./build/api");
 passthru(__DIR__ . '/phptest');
-echo '[apigen]' . PHP_EOL;
-passthru("php " . __DIR__ . "/apigen.phar generate -s src -d build/api"); // php 7.2 does not work

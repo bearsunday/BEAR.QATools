@@ -10,8 +10,6 @@ Included in this package are:
 * [squizlabs/php_codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.
 * [fabpot/php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) Analyzes some PHP source code and tries to fix coding standards issues (PSR-1 and PSR-2 compatible).
 * [sebastian/phpcpd](https://github.com/sebastianbergmann/phpcpd) Copy/Paste Detector (CPD) for PHP code.
-* [covex-nn/phpcb](https://github.com/covex-nn/PHP_CodeBrowser) A code browser that augments the code with information from various QA tools.
-* [apigen/apigen](https://github.com/apigen/apigen) PHP source code API generator.
 * [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker) PHP frontend for security.symfony.com.
 * [phpstan/phpstan](https://github.com/phpstan/phpstan) A PHP Static Analysis Tool.
 * [vimeo/psalm](https://getpsalm.org/) A static analysis tool for PHP.
@@ -70,7 +68,7 @@ Please change on demand.
 
 ### All
 
-`phpcs`, `phpmd`, `phpunit`,  `php-cs-fixer`, `pdepend`, `phploc`, `apigen` and `php-cs-fixer` will be executed in order. This is the ideal for CI.
+`phpcs`, `phpmd`, `phpunit`,  `php-cs-fixer`, `pdepend`, `phploc`, and `php-cs-fixer` will be executed in order. This is the ideal for CI.
 
 global
 
@@ -137,13 +135,3 @@ phpcpd
 phpmetrics
 
     vendor/bin/phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml
-
-### documentation
-
-apigen
-
-    vendor/bin/apigen.phar generate -s src -d build/api
-    
-phpcb
-
-    vendor/bin/phpcb -s src -o build/code-browser

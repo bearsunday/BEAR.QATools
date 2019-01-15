@@ -20,7 +20,6 @@
     "phpmetrics/phpmetrics": "^2.4"
   },
   "bin": [
-    "bin/apigen.phar",
     "bin/phpbuild",
     "bin/phptest"
   ]

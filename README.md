@@ -13,7 +13,6 @@ Included in this package are:
 * [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker) PHP frontend for security.symfony.com.
 * [phpstan/phpstan](https://github.com/phpstan/phpstan) A PHP Static Analysis Tool.
 * [vimeo/psalm](https://getpsalm.org/) A static analysis tool for PHP.
-* [phpmetrics/phpmetrics](http://www.phpmetrics.org/) Static analysis tool for PHP.
 
 # Installation
 
@@ -92,7 +91,7 @@ phpunit
 
     vendor/bin/phpunit
 
-phpunit + phpmd + phpcs + php-cs-fixer + phpstan + psalm + phpmetrics
+phpunit + phpmd + phpcs + php-cs-fixer + phpstan + psalm
 
     vendor/bin/phptest
 
@@ -131,7 +130,3 @@ phploc
 phpcpd    
 
     vendor/bin/phpcpd src
-
-phpmetrics
-
-    vendor/bin/phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml

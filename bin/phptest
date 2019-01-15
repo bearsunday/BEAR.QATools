@@ -15,5 +15,3 @@ echo '[phpstan]' . PHP_EOL;
 passthru("./vendor/bin/phpstan analyse -l max src tests -c phpstan.neon --no-progress");
 echo '[psalm]' . PHP_EOL;
 passthru("./vendor/bin/psalm");
-echo '[phpmetrics]' . PHP_EOL;
-passthru("./vendor/bin/phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml --report-csv=build/logs/phpmetrics.csv --report-violations=build/logs/violations.xml");

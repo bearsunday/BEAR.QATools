@@ -13,6 +13,7 @@ Included in this package are:
 * [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker) PHP frontend for security.symfony.com.
 * [phpstan/phpstan](https://github.com/phpstan/phpstan) A PHP Static Analysis Tool.
 * [vimeo/psalm](https://getpsalm.org/) A static analysis tool for PHP.
+* [phpmetrics/phpmetrics](http://www.phpmetrics.org/) Static analysis tool for PHP.
 
 # Installation
 
@@ -78,7 +79,7 @@ global
 local
 
 ```
-vendor/bin/phpbuild
+./vendor/bin/phpbuild
 ```
 
 Since `php-cs-fixer` only issues a warning, please modify the code with `php-cs-fixer fix src` command if necessary.
@@ -89,44 +90,48 @@ Since `php-cs-fixer` only issues a warning, please modify the code with `php-cs-
 
 phpunit
 
-    vendor/bin/phpunit
+    phpunit
 
 phpunit + phpmd + phpcs + php-cs-fixer + phpstan + psalm
 
-    vendor/bin/phptest
+    phptest
 
 ### per commit
 
 php-cs-fixer
 
-    vendor/bin/php-cs-fixer fix src
+    php-cs-fixer fix src
 
 phpcs
 
-    vendor/bin/phpcs --standard=./phpcs.xml src
-    vendor/bin/phpcs --standard=./phpcs.xml --warning-severity=false src
-    vendor/bin/phpcs --standard=vendor/bear/qatools/phpcs.xml --warning-severity=false src
+    phpcs --standard=./phpcs.xml src
+    phpcs --standard=./phpcs.xml --warning-severity=false src
+    phpcs --standard=vendor/bear/qatools/phpcs.xml --warning-severity=false src
 
 ### per deploy
 
 security-checker
 
-    vendor/bin/security-checker security:check
+    security-checker security:check
 
 ### code quality
 
 phpstan
 
-    vendor/bin/phpstan analyse -l max src
+    phpstan analyse -l max src
 
 psalm
 
-    vendor/bin/psalm
+    psalm
 
 phploc
 
-    vendor/bin/phploc src
+    phploc src
     
 phpcpd    
 
-    vendor/bin/phpcpd src
+    phpcpd src
+
+phpmetrics
+
+    phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml

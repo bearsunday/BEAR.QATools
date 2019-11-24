@@ -16,7 +16,8 @@
         "phpunit/phpunit": "^6.5 || ^7.5 || ^8.1",
         "sebastian/phpcpd": "^3.0 || ^4.1",
         "squizlabs/php_codesniffer": "^3.4",
-        "vimeo/psalm": "^3.6"
+        "vimeo/psalm": "^3.6",
+        "phpmetrics/phpmetrics": "^2.4"
     },
     "bin": [
         "bin/phpbuild",

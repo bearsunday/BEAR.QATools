@@ -1,6 +1,20 @@
 #!/usr/bin/env php
 <?php
 
-chdir(getcwd());
-passthru("rm -rf ./build; mkdir -p ./build/logs ./build/pdepend ./build/api");
-passthru(__DIR__ . '/phptest');
+passthru("rm -rf ./build; mkdir -p ./build/logs ./build/pdepend ./build/api ./build/metrics");
+echo '[phpunit +coverage]' . PHP_EOL;
+passthru("php -dzend_extension=xdebug.so `which phpunit` --coverage-html build/coverage --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml");
+echo '[phpcs]' . PHP_EOL;
+passthru("phpcs --report=checkstyle --report-file=./build/logs/checkstyle.xml --standard=phpcs.xml src");
+echo '[phpmd]' . PHP_EOL;
+passthru("./vendor/bin/phpmd src text ./phpmd.xml");
+echo '[php-cs-fixer]' . PHP_EOL;
+passthru("php-cs-fixer fix src --dry-run -v");
+echo '[phpstan]' . PHP_EOL;
+passthru("phpstan analyse -l max src tests -c phpstan.neon --no-progress");
+echo '[psalm]' . PHP_EOL;
+passthru("psalm --show-info=false");
+echo '[phploc]' . PHP_EOL;
+passthru('phploc src');
+echo '[phpmetrics]' . PHP_EOL;
+passthru('phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml');

@@ -23,7 +23,7 @@ Global install
 
 Local install
 
-    composer require bear/qatools
+    composer require --dev bear/qatools
 
 # Config
 

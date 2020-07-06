@@ -24,7 +24,7 @@ Local install
 
     composer require --dev bear/qatools
 
-# QA Configs
+## QA Configs
 
     cp vendor/bear/qatools/phpunit.xml.dist phpunit.xml
     cp vendor/bear/qatools/phpcs.xml .
@@ -37,25 +37,6 @@ Local install
     cp vendor/bear/qatools/.travis.yml .
     cp vendor/bear/qatools/.scrutinizer.yml .
 
-When using file header, You need to edit the header section in`.php_cs`.
-
-```php
-$header = <<<'EOF'
-This file is part of the __PACKAGE__ package.
-
-@license http://opensource.org/licenses/MIT MIT
-EOF;
-```
-
-Place edit the header text then uncomment `header_comment` section.
-
-```php
-//        'header_comment' => ['header' => $header, 'commentType' => 'comment', 'separate' => 'none'],
-```
-
-Although I tried to set config as based on what is used in the standard,
-Please change on demand.
-
 * [phpunit.xml](https://phpunit.de/manual/current/en/index.html)
 * [phpcs.xml](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml)
 * [phpmd.xml](https://phpmd.org/documentation/creating-a-ruleset.html)
@@ -66,41 +47,11 @@ Please change on demand.
 
 # Usage
 
-### All
-
-`phpcs`, `phpmd`, `phpunit`,  `php-cs-fixer`, `pdepend`, `phploc`, and `php-cs-fixer` will be executed in order. This is the ideal for CI.
-
-global
-
-```
-~/.composer/vendor/bin/phpbuild
-```
-
-local
-
-```
-./vendor/bin/phpbuild
-```
-
-Since `php-cs-fixer` only issues a warning, please modify the code with `php-cs-fixer fix src` command if necessary.
-
-# Individual execution
-
-### development
+### Test and CS
 
 phpunit
 
     phpunit
-
-phpunit + phpmd + phpcs + php-cs-fixer + phpstan + psalm
-
-    phptest
-
-### per commit
-
-php-cs-fixer
-
-    php-cs-fixer fix src
 
 phpcs
 
@@ -108,17 +59,12 @@ phpcs
     phpcs --standard=./phpcs.xml --warning-severity=false src
     phpcs --standard=vendor/bear/qatools/phpcs.xml --warning-severity=false src
 
-### per deploy
 
-security-checker
-
-    security-checker security:check
-
-### code quality
+### Code Quality
 
 phpstan
 
-    phpstan analyse -l max src
+    phpstan analyse
 
 psalm
 
@@ -135,3 +81,16 @@ phpcpd
 phpmetrics
 
     phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml
+
+### Security
+
+security-checker
+
+    security-checker security:check
+
+### CI build
+
+```
+phpbuild
+```
+

@@ -24,7 +24,7 @@ Local install
 
     composer require --dev bear/qatools
 
-# QA Configs
+## QA Configs
 
     cp vendor/bear/qatools/phpunit.xml.dist phpunit.xml
     cp vendor/bear/qatools/phpcs.xml .
@@ -47,39 +47,11 @@ Local install
 
 # Usage
 
-### All
-
-`phpcs`, `phpmd`, `phpunit`,  `php-cs-fixer`, `pdepend`, `phploc`, and `php-cs-fixer` will be executed in order. This is the ideal for CI.
-
-global
-
-```
-~/.composer/vendor/bin/phpbuild
-```
-
-local
-
-```
-./vendor/bin/phpbuild
-```
-
-# Individual execution
-
-### development
+### Test and CS
 
 phpunit
 
     phpunit
-
-phpunit + phpmd + phpcs + php-cs-fixer + phpstan + psalm
-
-    phptest
-
-### per commit
-
-php-cs-fixer
-
-    php-cs-fixer fix src
 
 phpcs
 
@@ -87,13 +59,8 @@ phpcs
     phpcs --standard=./phpcs.xml --warning-severity=false src
     phpcs --standard=vendor/bear/qatools/phpcs.xml --warning-severity=false src
 
-### per deploy
 
-security-checker
-
-    security-checker security:check
-
-### code quality
+### Code Quality
 
 phpstan
 
@@ -114,3 +81,16 @@ phpcpd
 phpmetrics
 
     phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml
+
+### Security
+
+security-checker
+
+    security-checker security:check
+
+### CI build
+
+```
+phpbuild
+```
+

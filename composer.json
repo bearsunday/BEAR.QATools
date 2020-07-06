@@ -8,6 +8,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "doctrine/coding-standard": "^8.1",
         "mayflower/php-codebrowser": "^2.0",
         "phploc/phploc": "^5.0",
         "phpmd/phpmd": "^2.7",

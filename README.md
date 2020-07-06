@@ -24,14 +24,15 @@ Local install
 
     composer require --dev bear/qatools
 
-# Config
+# QA Configs
 
     cp vendor/bear/qatools/phpunit.xml.dist phpunit.xml
     cp vendor/bear/qatools/phpcs.xml .
     cp vendor/bear/qatools/phpmd.xml .
-    cp vendor/bear/qatools/.php_cs.dist .php_cs
+    cp vendor/bear/qatools/phpstan.neon .
+    psalm --init
 
-for CI web service
+## CI Configs
 
     cp vendor/bear/qatools/.travis.yml .
     cp vendor/bear/qatools/.scrutinizer.yml .

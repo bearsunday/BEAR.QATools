@@ -37,25 +37,6 @@ Local install
     cp vendor/bear/qatools/.travis.yml .
     cp vendor/bear/qatools/.scrutinizer.yml .
 
-When using file header, You need to edit the header section in`.php_cs`.
-
-```php
-$header = <<<'EOF'
-This file is part of the __PACKAGE__ package.
-
-@license http://opensource.org/licenses/MIT MIT
-EOF;
-```
-
-Place edit the header text then uncomment `header_comment` section.
-
-```php
-//        'header_comment' => ['header' => $header, 'commentType' => 'comment', 'separate' => 'none'],
-```
-
-Although I tried to set config as based on what is used in the standard,
-Please change on demand.
-
 * [phpunit.xml](https://phpunit.de/manual/current/en/index.html)
 * [phpcs.xml](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml)
 * [phpmd.xml](https://phpmd.org/documentation/creating-a-ruleset.html)
@@ -81,8 +62,6 @@ local
 ```
 ./vendor/bin/phpbuild
 ```
-
-Since `php-cs-fixer` only issues a warning, please modify the code with `php-cs-fixer fix src` command if necessary.
 
 # Individual execution
 
@@ -118,7 +97,7 @@ security-checker
 
 phpstan
 
-    phpstan analyse -l max src
+    phpstan analyse
 
 psalm
 

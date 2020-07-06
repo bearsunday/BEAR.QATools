@@ -5,8 +5,6 @@ echo '[phpunit]' . PHP_EOL;
 passthru("phpunit");
 echo '[phpcs]' . PHP_EOL;
 passthru("phpcs --report=checkstyle --report-file=./build/logs/checkstyle.xml --standard=phpcs.xml src");
-echo '[php-cs-fixer]' . PHP_EOL;
-passthru("php-cs-fixer fix src --dry-run -v");
 echo '[phpstan]' . PHP_EOL;
 passthru("phpstan analyse -l max src tests -c phpstan.neon");
 echo '[psalm]' . PHP_EOL;

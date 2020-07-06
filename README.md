@@ -8,7 +8,6 @@ Included in this package are:
 * [phploc/phploc](https://github.com/sebastianbergmann/phploc) A tool for quickly measuring the size of a PHP project.
 * [phpmd/phpmd](https://github.com/phpmd/phpmd) PHPMD is a spin-off project of PHP Depend and aims to be a PHP equivalent of the well known Java tool PMD.
 * [squizlabs/php_codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.
-* [fabpot/php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) Analyzes some PHP source code and tries to fix coding standards issues (PSR-1 and PSR-2 compatible).
 * [sebastian/phpcpd](https://github.com/sebastianbergmann/phpcpd) Copy/Paste Detector (CPD) for PHP code.
 * [sensiolabs/security-checker](https://github.com/sensiolabs/security-checker) PHP frontend for security.symfony.com.
 * [phpstan/phpstan](https://github.com/phpstan/phpstan) A PHP Static Analysis Tool.
@@ -25,14 +24,15 @@ Local install
 
     composer require --dev bear/qatools
 
-# Config
+# QA Configs
 
     cp vendor/bear/qatools/phpunit.xml.dist phpunit.xml
     cp vendor/bear/qatools/phpcs.xml .
     cp vendor/bear/qatools/phpmd.xml .
-    cp vendor/bear/qatools/.php_cs.dist .php_cs
+    cp vendor/bear/qatools/phpstan.neon .
+    psalm --init
 
-for CI web service
+## CI Configs
 
     cp vendor/bear/qatools/.travis.yml .
     cp vendor/bear/qatools/.scrutinizer.yml .

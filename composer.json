@@ -7,30 +7,24 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.2.0",
-        "doctrine/coding-standard": "^8.1",
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "phploc/phploc": "^5.0 || ^6.0 || 7.0",
+        "php": "^7.2 || ^8.0",
+        "doctrine/coding-standard": "^8.2",
+        "friendsofphp/php-cs-fixer": "^2.17",
+        "phploc/phploc": "^7.0",
         "phpmd/phpmd": "^2.9",
-        "phpmetrics/phpmetrics": "^2.4",
+        "phpmetrics/phpmetrics": "^2.7",
         "phpstan/phpstan": "^0.12",
         "phpunit/phpunit": "^7.5 || ^8.5 || ^9.1",
         "psalm/plugin-phpunit": "^0.13",
-        "sebastian/phpcpd": "^3.0 || ^4.1 || ^5.0 || ^6.0",
+        "sebastian/phpcpd": "^6.0",
         "squizlabs/php_codesniffer": "^3.5",
         "vimeo/psalm": "^3.6 || ^4.2"
     },
-    "bin": [
-        "bin/phpbuild",
-        "bin/phptest"
-    ],
     "config": {
         "sort-packages": true
     },
     "scripts": {
-        "test": [
-            "phpunit"
-        ],
+        "test": "phpunit",
         "tests": [
             "@cs",
             "@sa",
@@ -41,17 +35,9 @@
             "psalm --no-progress",
             "phpmd src text ./phpmd.xml"
         ],
-        "coverage": [
-            "php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"
-        ],
-        "cs": [
-            "phpcs"
-        ],
-        "cs-fix": [
-            "phpcbf"
-        ],
-        "metrics": [
-            "phpmetrics --report-html=build/metrics --exclude=Exception src"
-        ]
+        "coverage": "php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage",
+        "cs": "phpcs",
+        "cs-fix": "phpcbf",
+        "metrics": "phpmetrics --report-html=build/metrics --exclude=Exception src"
     }
 }

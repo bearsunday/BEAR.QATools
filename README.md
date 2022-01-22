@@ -42,7 +42,6 @@ Local install
 * [phpmd.xml](https://phpmd.org/documentation/creating-a-ruleset.html)
 * [phpunit.xml](https://phpunit.de/manual/current/en/index.html)
 * [.php_cs](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
-* [.travis.yml](https://docs.travis-ci.com/user/customizing-the-build)
 * [.scrutinizer.yml](https://scrutinizer-ci.com/docs/guides/php/)
 
 # Usage
@@ -93,4 +92,3 @@ security-checker
 ```
 phpbuild
 ```
-

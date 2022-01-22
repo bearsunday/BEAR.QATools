@@ -42,7 +42,6 @@ Local install
 * [phpmd.xml](https://phpmd.org/documentation/creating-a-ruleset.html)
 * [phpunit.xml](https://phpunit.de/manual/current/en/index.html)
 * [.php_cs](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
-* [.travis.yml](https://docs.travis-ci.com/user/customizing-the-build)
 * [.scrutinizer.yml](https://scrutinizer-ci.com/docs/guides/php/)
 
 # Usage
@@ -81,16 +80,3 @@ phpcpd
 phpmetrics
 
     phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml
-
-### Security
-
-security-checker
-
-    security-checker security:check
-
-### CI build
-
-```
-phpbuild
-```
-

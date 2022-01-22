@@ -80,15 +80,3 @@ phpcpd
 phpmetrics
 
     phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/logs/junit.xml
-
-### Security
-
-security-checker
-
-    security-checker security:check
-
-### CI build
-
-```
-phpbuild
-```

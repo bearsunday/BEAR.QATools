@@ -1,0 +1,32 @@
+{
+    "name": "bear/qatools-smoke",
+    "description": "Fixture project that exercises the shipped QA config templates in CI",
+    "license": "MIT",
+    "type": "project",
+    "require-dev": {
+        "bear/qatools": "@dev"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": ".."
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BEAR\\QATools\\Smoke\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BEAR\\QATools\\Smoke\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

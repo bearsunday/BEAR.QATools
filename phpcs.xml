@@ -70,14 +70,6 @@
             <property name="maxLinesCountBeforeWithoutComment" value="0"/>
         </properties>
     </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes.DeclareStrictTypesMissing">
-        <exclude-pattern>src/ClassParam.php</exclude-pattern>
-    </rule>
-    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
-        <properties>
-            <property name="searchAnnotations" value="true"/>
-        </properties>
-    </rule>
 
     <exclude-pattern>*/Fake/*</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>

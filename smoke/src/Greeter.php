@@ -6,7 +6,6 @@ namespace BEAR\QATools\Smoke;
 
 use function sprintf;
 
-/** @psalm-api */
 final class Greeter
 {
     /** @var string */

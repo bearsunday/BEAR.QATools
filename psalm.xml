@@ -12,4 +12,18 @@
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
+
+    <issueHandlers>
+        <!--
+            Only src is analysed, by design: errorLevel 1 is too strict for test
+            code, where ClassMustBeFinal and similar rules work against normal
+            PHPUnit practice. The trade-off is that unused-class detection has
+            nothing to go on. A class reached only through the framework - every
+            ResourceObject, resolved by URI rather than referenced from src - or
+            used only from tests is reported as never used. Since neither case
+            is a defect, the check is switched off rather than left to be
+            silenced class by class with @psalm-api.
+        -->
+        <UnusedClass errorLevel="suppress"/>
+    </issueHandlers>
 </psalm>

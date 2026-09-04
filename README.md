@@ -96,6 +96,12 @@ phpmetrics
 # Code Standards
 
 * PSR-12 base with Doctrine Coding Standard
-* PHPStan level: max
-* Psalm errorLevel: 1
+* PHPStan level: max, over `src` and `tests`
+* Psalm errorLevel: 1, over `src` only
 * PHP compatibility: 7.4+
+
+Psalm is deliberately kept off `tests`: errorLevel 1 is too strict for test code,
+where rules such as `ClassMustBeFinal` work against normal PHPUnit practice.
+`UnusedClass` is suppressed as a consequence — with only `src` analysed, a class
+reached through the framework or used only from tests looks unused. Test code is
+still covered by `phpcs` and PHPStan.

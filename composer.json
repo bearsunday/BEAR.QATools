@@ -6,6 +6,7 @@
         "qa"
     ],
     "license": "MIT",
+    "type": "phpcodesniffer-standard",
     "require": {
         "php": "^7.4 || ^8.0",
         "doctrine/coding-standard": "^14.0",

@@ -24,10 +24,46 @@ Local install
 
 ## QA Configs
 
+PHP_CodeSniffer, PHPStan and PHPMD are configured by reference rather than by
+copying, so fixes to the shared rules reach your project with `composer update`.
+
+**PHP_CodeSniffer** — `bear/qatools` registers itself as a standard named
+`BearSunday`, so your `phpcs.xml` only needs to name it:
+
+```xml
+<ruleset>
+    <file>src</file>
+    <file>tests</file>
+
+    <rule ref="BearSunday"/>
+</ruleset>
+```
+
+**PHPStan** — include the shared settings and add your own paths:
+
+```neon
+includes:
+    - vendor/bear/qatools/phpstan-base.neon
+
+parameters:
+    paths:
+        - src
+        - tests
+```
+
+**PHPMD** — point at the shipped ruleset directly, no local file needed:
+
+    phpmd src text vendor/bear/qatools/phpmd.xml
+
+Ready-made versions of the first two are in the package root if you would rather
+start from a copy than write your own:
+
     cp vendor/bear/qatools/phpcs.xml .
-    cp vendor/bear/qatools/phpmd.xml .
     cp vendor/bear/qatools/phpstan.neon .
-    psalm --init
+
+**Psalm** — copy-based; Psalm has no mechanism for including an external config:
+
+    cp vendor/bear/qatools/psalm.xml .
 
 For PHPUnit, copy the template matching your PHPUnit major version:
 

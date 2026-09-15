@@ -1,5 +1,11 @@
+# A project configuration built on the shared settings.
+#
+# Everything below is project-local: which directories to analyse. The level
+# and any future shared settings come from phpstan-base.neon.
+includes:
+  - vendor/bear/qatools/phpstan-base.neon
+
 parameters:
-  level: max
   paths:
     - src
     - tests

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+    Exercises the inheritance path: the standard is referenced by name, not
+    copied. If registration through dealerdirect/phpcodesniffer-composer-installer
+    breaks, or BearSunday/ruleset.xml stops being a valid standalone ruleset,
+    phpcs fails here.
+-->
+<ruleset
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+
+    <arg name="basepath" value="."/>
+    <arg name="extensions" value="php"/>
+    <arg value="nps"/>
+
+    <config name="php_version" value="70400"/>
+
+    <file>src</file>
+    <file>tests</file>
+
+    <rule ref="BearSunday"/>
+</ruleset>

@@ -1,4 +1,13 @@
 <?xml version="1.0"?>
+<!--
+    A project configuration built on the BearSunday standard.
+
+    Everything below this comment is project-local: which directories to scan
+    and how to run. The rules themselves live in BearSunday/ruleset.xml and are
+    pulled in by the single <rule ref="BearSunday"/> line, so updates to the
+    standard arrive with `composer update` instead of needing this file to be
+    copied again.
+-->
 <ruleset
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
@@ -19,58 +28,5 @@
     <file>tests</file>
     <exclude-pattern>*/tests/tmp/*</exclude-pattern>
 
-    <!-- PSR12 Coding Standard -->
-    <rule ref="PSR12"/>
-
-    <!-- Doctrine Coding Standard -->
-    <rule ref="Doctrine">
-        <!-- Inapplicable for this project -->
-        <!-- Base -->
-        <exclude name="Generic.Formatting.MultipleStatementAlignment.NotSame"/>
-        <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
-        <exclude name="SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming.SuperfluousPrefix"/>
-        <exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix"/>
-        <exclude name="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming.SuperfluousSuffix"/>
-        <exclude name="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.MissingVariable"/>
-        <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment.UselessInheritDocComment"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint"/>
-        <exclude name="Squiz.Commenting.FunctionComment.InvalidNoReturn"/>
-        <!-- /Base -->
-        <!-- Option -->
-        <!--        <exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed"/>-->
-        <exclude name="SlevomatCodingStandard.PHP.RequireExplicitAssertion.RequiredExplicitAssertion"/>
-        <!-- /Option -->
-        <!-- Exclude Fake files form Doctrine CS -->
-        <exclude-pattern>*/tests/Fake/*</exclude-pattern>
-    </rule>
-
-    <!-- Additional Rules -->
-    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
-        <properties>
-            <property name="searchAnnotations" value="true"/>
-        </properties>
-    </rule>
-    <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing">
-        <properties>
-            <property name="annotationsGroups" type="array">
-                <element value="@param, @psalm-param, @phpstan-param"/>
-                <element value="@return, @psalm-return, @phpstan-return"/>
-                <element value="@throws"/>
-            </property>
-        </properties>
-    </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint">
-        <include-pattern>tests/*</include-pattern>
-    </rule>
-    <rule ref="SlevomatCodingStandard.Classes.PropertySpacing">
-        <properties>
-            <property name="minLinesCountBeforeWithComment" value="1"/>
-            <property name="maxLinesCountBeforeWithComment" value="1"/>
-            <property name="maxLinesCountBeforeWithoutComment" value="0"/>
-        </properties>
-    </rule>
-
-    <exclude-pattern>*/Fake/*</exclude-pattern>
-    <exclude-pattern>*/tmp/*</exclude-pattern>
+    <rule ref="BearSunday"/>
 </ruleset>

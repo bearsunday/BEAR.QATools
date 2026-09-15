@@ -1,0 +1,9 @@
+# Exercises the inheritance path: the shared settings are included from vendor,
+# not copied. If phpstan-base.neon stops being includable, phpstan fails here.
+includes:
+  - vendor/bear/qatools/phpstan-base.neon
+
+parameters:
+  paths:
+    - src
+    - tests

@@ -140,7 +140,10 @@ phpmetrics
 * PSR-12 base with Doctrine Coding Standard
 * PHPStan level: max, over `src` and `tests`
 * Psalm errorLevel: 1, over `src` only
-* PHP compatibility: 8.2.27+
+* PHP compatibility: 8.2.27+, and 8.3.16+ on PHP 8.3
+
+The 8.3 floor comes from Psalm 6, which requires `~8.2.27 || ~8.3.16 || ~8.4.3 || ~8.5.0`;
+Composer refuses to install on PHP 8.3.0–8.3.15, including Ubuntu 24.04's stock 8.3.6.
 
 Psalm is deliberately kept off `tests`: errorLevel 1 is too strict for test code,
 where rules such as `ClassMustBeFinal` work against normal PHPUnit practice.

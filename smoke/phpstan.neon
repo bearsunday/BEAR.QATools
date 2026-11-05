@@ -1,6 +1,5 @@
 # Exercises the inheritance path: the shared settings are included from vendor,
-# not copied. Once the workflow's smoke job is in place, phpstan-base.neon
-# becoming un-includable fails here.
+# not copied, so phpstan-base.neon becoming un-includable fails CI here.
 includes:
   - vendor/bear/qatools/phpstan-base.neon
 

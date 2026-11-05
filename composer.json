@@ -10,12 +10,12 @@
     "require": {
         "php": "^8.2.27",
         "doctrine/coding-standard": "^14.0",
-        "phpmd/phpmd": "^2.11",
+        "phpmd/phpmd": "^2.11 || ^3.0",
         "phpmetrics/phpmetrics": "^2.7",
         "phpstan/phpstan": "^2.1",
-        "phpunit/phpunit": "^11.3 || ^12.0",
+        "phpunit/phpunit": "^11.3 || ^12.0 || ^13.0",
         "squizlabs/php_codesniffer": "^4.0",
-        "vimeo/psalm": "^6.11"
+        "vimeo/psalm": "^6.11 || ^7.0"
     },
     "config": {
         "sort-packages": true,

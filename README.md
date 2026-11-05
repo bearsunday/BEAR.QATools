@@ -38,8 +38,9 @@ it.
 `BearSunday`, so your `phpcs.xml` only needs to name it:
 
     <ruleset>
-        <!-- Lowest PHP version you support; without it phpcs assumes the PHP
-             it happens to be running on, so results differ between CI legs. -->
+        <!-- The standard already defaults to 7.4; set this to the lowest PHP
+             version you actually support. Without either, phpcs assumes the PHP
+             it happens to be running on and results differ between CI legs. -->
         <config name="php_version" value="70400"/>
 
         <file>src</file>

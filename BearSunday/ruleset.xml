@@ -2,9 +2,9 @@
 <!--
     The BearSunday coding standard.
 
-    This file holds rules only. It carries no <file> or <arg> element and no
-    top-level <exclude-pattern>, so that a consuming project can reference it
-    with a single line and keep its own paths and runtime settings:
+    This file holds rules, and one floor. It carries no <file> or <arg> element
+    and no top-level <exclude-pattern>, so that a consuming project can
+    reference it with a single line and keep its own paths and runtime settings:
 
         <rule ref="BearSunday"/>
 
@@ -31,6 +31,16 @@
     standard; copy it if you want a starting point rather than writing your own.
 -->
 <ruleset name="BearSunday">
+    <!--
+        The floor: without any php_version, PHPCS assumes whatever PHP it is
+        running on, so a project that omits it gets results that change between
+        CI legs. This is the weakest setting of the three — a project's own
+        <config> and a CLI "runtime-set php_version" both override it, verified
+        in all three combinations — so it only ever catches the case where
+        nobody said anything. It also covers running the standard directly
+        rather than through a project ruleset.
+    -->
+    <config name="php_version" value="70400"/>
 
     <!-- PSR12 Coding Standard -->
     <rule ref="PSR12"/>

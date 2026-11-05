@@ -2,12 +2,8 @@
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
-        bootstrap="tests/bootstrap.php">
-    <coverage processUncoveredFiles="true" cacheDirectory="./.phpunit-cache">
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
-    </coverage>
+        bootstrap="tests/bootstrap.php"
+        cacheDirectory=".phpunit.cache">
     <testsuites>
         <testsuite name="unit">
             <directory>tests</directory>
@@ -16,4 +12,9 @@
     <php>
         <ini name="error_reporting" value="-1"/>
     </php>
+    <source>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+    </source>
 </phpunit>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+    Exercises the inheritance path: the standard is referenced, not copied, so a
+    break in its registration or in the ruleset itself fails CI here. No
+    top-level <exclude-pattern>, since the fixture sits wherever CI puts it.
+-->
+<ruleset
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+
+    <arg name="basepath" value="."/>
+    <arg name="extensions" value="php"/>
+    <arg value="nps"/>
+
+    <config name="php_version" value="80200"/>
+
+    <file>src</file>
+    <file>tests</file>
+
+    <rule ref="BearSunday"/>
+</ruleset>

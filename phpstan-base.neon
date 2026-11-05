@@ -1,0 +1,5 @@
+# The shared PHPStan settings. No `paths`, so a project can include this and
+# keep its own; including rather than copying means changes arrive with
+# `composer update`. phpstan.neon here is a project config built on it.
+parameters:
+  level: max

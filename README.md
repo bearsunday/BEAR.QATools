@@ -7,7 +7,7 @@ Included in this package are:
 * [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) The PHP Unit Testing framework.
 * [phpmd/phpmd](https://github.com/phpmd/phpmd) PHPMD is a spin-off project of PHP Depend and aims to be a PHP equivalent of the well known Java tool PMD.
 * [squizlabs/php_codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.
-* [doctrine/coding-standard](https://github.com/doctrine/coding-standard) The PHP_CodeSniffer ruleset the bundled `phpcs.xml` builds on.
+* [doctrine/coding-standard](https://github.com/doctrine/coding-standard) The PHP_CodeSniffer ruleset the bundled `BearSunday` standard builds on.
 * [phpstan/phpstan](https://github.com/phpstan/phpstan) A PHP Static Analysis Tool.
 * [vimeo/psalm](https://psalm.dev/) A static analysis tool for PHP.
 * [phpmetrics/phpmetrics](http://www.phpmetrics.org/) Static analysis tool for PHP.
@@ -24,24 +24,66 @@ Local install
 
 ## QA Configs
 
+PHP_CodeSniffer, PHPStan and PHPMD are configured by reference rather than by
+copying, so fixes to the shared rules reach your project with `composer update`.
+
+The `vendor/bear/qatools/` paths below assume the local install above. A global
+install puts the package outside your project, so adjust the paths to wherever
+`composer global config home` reports, or install locally. A globally registered
+PHP_CodeSniffer standard is also invisible to a project-local `vendor/bin/phpcs`,
+which is what editors usually pick up.
+
+**PHP_CodeSniffer** — `bear/qatools` registers itself as a standard named
+`BearSunday`, so your `phpcs.xml` only needs to name it:
+
+    <ruleset>
+        <config name="php_version" value="80200"/>
+
+        <file>src</file>
+        <file>tests</file>
+        <exclude-pattern>*/tests/Fake/*</exclude-pattern>
+        <exclude-pattern>*/tests/tmp/*</exclude-pattern>
+
+        <rule ref="BearSunday"/>
+    </ruleset>
+
+Registration happens through `dealerdirect/phpcodesniffer-composer-installer`,
+which Composer only runs if your project allows it:
+
+    composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+
+Without that, `composer install` fails with a blocked-plugin error, or — if the
+plugin is explicitly denied — installs quietly and leaves `phpcs` reporting
+`Referenced sniff "BearSunday" does not exist`. Standard names are global with no
+namespacing; `phpcs -e --standard=BearSunday` shows what the name resolved to.
+
+**PHPStan** — include the shared settings and add your own paths:
+
+    includes:
+        - vendor/bear/qatools/phpstan-base.neon
+
+    parameters:
+        paths:
+            - src
+            - tests
+
+**PHPMD** — point at the shipped ruleset directly, no local file needed:
+
+    phpmd src text vendor/bear/qatools/phpmd.xml
+
+Ready-made versions of the first two are in the package root if you would rather
+start from a copy than write your own:
+
     cp vendor/bear/qatools/phpcs.xml .
-    cp vendor/bear/qatools/phpmd.xml .
     cp vendor/bear/qatools/phpstan.neon .
-    psalm --init
 
-For PHPUnit, copy the template matching your PHPUnit major version:
+**Psalm** — copy-based; Psalm has no mechanism for including an external config:
 
-    # PHPUnit 9
+    cp vendor/bear/qatools/psalm.xml .
+
+**PHPUnit** — copy-based; the template is project-local by nature:
+
     cp vendor/bear/qatools/phpunit.xml.dist phpunit.xml
-
-    # PHPUnit 10, 11 or 12
-    cp vendor/bear/qatools/phpunit10.xml.dist phpunit.xml
-
-PHPUnit 10 replaced the configuration schema, and the two are not interchangeable —
-`phpunit.xml.dist` triggers a deprecation notice on PHPUnit 10 and later, while
-`phpunit10.xml.dist` is rejected by PHPUnit 9. PHPUnit 9 remains supported because
-PHPUnit 10, 11 and 12 require PHP 8.1, 8.2 and 8.3 respectively, so it is the only
-line installable on PHP 7.4 and 8.0.
 
 ## CI Configs
 
@@ -87,7 +129,7 @@ psalm
 
 phpmd
 
-    phpmd src text ./phpmd.xml
+    phpmd src text vendor/bear/qatools/phpmd.xml
 
 phpmetrics
 
@@ -98,7 +140,10 @@ phpmetrics
 * PSR-12 base with Doctrine Coding Standard
 * PHPStan level: max, over `src` and `tests`
 * Psalm errorLevel: 1, over `src` only
-* PHP compatibility: 7.4+
+* PHP compatibility: 8.2.27+, and 8.3.16+ on PHP 8.3
+
+The 8.3 floor comes from Psalm 6, which requires `~8.2.27 || ~8.3.16 || ~8.4.3 || ~8.5.0`;
+Composer refuses to install on PHP 8.3.0–8.3.15, including Ubuntu 24.04's stock 8.3.6.
 
 Psalm is deliberately kept off `tests`: errorLevel 1 is too strict for test code,
 where rules such as `ClassMustBeFinal` work against normal PHPUnit practice.

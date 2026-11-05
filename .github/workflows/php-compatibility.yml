@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
+        php-version: ['8.2', '8.3', '8.4', '8.5']
 
     steps:
       - name: Checkout code
@@ -32,3 +32,54 @@ jobs:
 
       - name: Run composer update
         run: composer update --no-interaction --prefer-dist
+
+  smoke:
+    # Runs the shipped configs against a fixture installed the way a consumer
+    # gets the package; composer-update only proves the constraints resolve.
+    name: Config Smoke Test (PHP ${{ matrix.php-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['8.2', '8.3', '8.4', '8.5']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+          tools: composer:v2
+
+      - name: Install the fixture against this checkout
+        working-directory: smoke
+        run: composer update --no-interaction --prefer-dist
+
+      - name: Copy the copy-based templates
+        working-directory: smoke
+        run: |
+          cp ../psalm.xml .
+          cp ../phpunit.xml.dist phpunit.xml
+
+      - name: phpcs
+        working-directory: smoke
+        run: ./vendor/bin/phpcs
+
+      - name: phpstan
+        working-directory: smoke
+        run: ./vendor/bin/phpstan analyse --no-progress -c phpstan.neon
+
+      - name: psalm
+        working-directory: smoke
+        run: ./vendor/bin/psalm --no-progress
+
+      - name: phpmd
+        working-directory: smoke
+        run: ./vendor/bin/phpmd src text vendor/bear/qatools/phpmd.xml
+
+      - name: phpunit
+        working-directory: smoke
+        run: ./vendor/bin/phpunit

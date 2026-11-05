@@ -1,5 +1,10 @@
+# A project config built on the shared settings — copy it into a project, where
+# vendor/bear/qatools/ exists. It does not resolve in a checkout of this
+# package, which ships no src/ or tests/ to analyse anyway.
+includes:
+  - vendor/bear/qatools/phpstan-base.neon
+
 parameters:
-  level: max
   paths:
     - src
     - tests

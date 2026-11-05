@@ -33,7 +33,7 @@
         "sa": [
             "phpstan analyse --no-progress -c phpstan.neon",
             "psalm --no-progress",
-            "phpmd src text ./phpmd.xml"
+            "phpmd src text vendor/bear/qatools/phpmd.xml"
         ],
         "coverage": "php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage",
         "cs": "phpcs",

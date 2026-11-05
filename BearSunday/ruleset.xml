@@ -3,13 +3,24 @@
     The BearSunday coding standard.
 
     This file holds rules only. It carries no <file>, <arg> or <config>
-    element, so that a consuming project can reference it with a single line
-    and keep its own paths and runtime settings:
+    element, and no top-level <exclude-pattern>, so that a consuming project can
+    reference it with a single line and keep its own paths, runtime settings and
+    layout conventions:
 
         <rule ref="BearSunday"/>
 
+    The omission of top-level <exclude-pattern> is deliberate. PHPCS turns one
+    into a global ignore and carries it across a reference, where it matches
+    against the whole absolute path, case-insensitively and unanchored — and a
+    consuming project has no way to take an inherited one back. `*/tmp/*` alone
+    would silently skip src/Tmp/, and skip everything for anyone whose checkout
+    lives under /tmp. Those patterns belong in the project's own ruleset;
+    phpcs.xml here shows them.
+
     dealerdirect/phpcodesniffer-composer-installer registers this directory as
-    a standard named after the directory itself, so no path is needed.
+    a standard named after the directory itself, so no path is needed. PHPCS has
+    no namespacing for standard names: the name is global across every installed
+    standard, and running `phpcs -e` against it shows what it resolved to.
 
     phpcs.xml in the package root is a ready-made project config built on this
     standard; copy it if you want a starting point rather than writing your own.
@@ -67,7 +78,4 @@
             <property name="maxLinesCountBeforeWithoutComment" value="0"/>
         </properties>
     </rule>
-
-    <exclude-pattern>*/Fake/*</exclude-pattern>
-    <exclude-pattern>*/tmp/*</exclude-pattern>
 </ruleset>

@@ -7,7 +7,7 @@ Included in this package are:
 * [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit) The PHP Unit Testing framework.
 * [phpmd/phpmd](https://github.com/phpmd/phpmd) PHPMD is a spin-off project of PHP Depend and aims to be a PHP equivalent of the well known Java tool PMD.
 * [squizlabs/php_codesniffer](https://github.com/squizlabs/PHP_CodeSniffer) PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.
-* [doctrine/coding-standard](https://github.com/doctrine/coding-standard) The PHP_CodeSniffer ruleset the bundled `phpcs.xml` builds on.
+* [doctrine/coding-standard](https://github.com/doctrine/coding-standard) The PHP_CodeSniffer ruleset the bundled `BearSunday` standard builds on.
 * [phpstan/phpstan](https://github.com/phpstan/phpstan) A PHP Static Analysis Tool.
 * [vimeo/psalm](https://psalm.dev/) A static analysis tool for PHP.
 * [phpmetrics/phpmetrics](http://www.phpmetrics.org/) Static analysis tool for PHP.
@@ -29,17 +29,38 @@ copying, so fixes to the shared rules reach your project with `composer update`.
 
 The `vendor/bear/qatools/` paths below assume the local install above. A global
 install puts the package outside your project, so adjust the paths to wherever
-`composer global config home` reports, or install locally.
+`composer global config home` reports, or install locally. Note that a global
+PHP_CodeSniffer standard is registered in the global `CodeSniffer.conf` only, so
+a project-local `vendor/bin/phpcs` — what editors usually pick up — will not see
+it.
 
 **PHP_CodeSniffer** — `bear/qatools` registers itself as a standard named
 `BearSunday`, so your `phpcs.xml` only needs to name it:
 
     <ruleset>
+        <!-- Lowest PHP version you support; without it phpcs assumes the PHP
+             it happens to be running on, so results differ between CI legs. -->
+        <config name="php_version" value="70400"/>
+
         <file>src</file>
         <file>tests</file>
+        <!-- Matched against the whole absolute path, so keep them narrow:
+             */tmp/* would also skip src/Tmp/, and skip everything if your
+             checkout lives under /tmp. -->
+        <exclude-pattern>*/tests/Fake/*</exclude-pattern>
+        <exclude-pattern>*/tests/tmp/*</exclude-pattern>
 
         <rule ref="BearSunday"/>
     </ruleset>
+
+Registration happens through `dealerdirect/phpcodesniffer-composer-installer`,
+which Composer only runs if your project allows it:
+
+    composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+
+Without that, `phpcs` reports `Referenced sniff "BearSunday" does not exist`.
+Standard names are global across every installed standard, with no namespacing —
+`phpcs -e --standard=BearSunday` lists what the name actually resolved to.
 
 **PHPStan** — include the shared settings and add your own paths:
 
@@ -123,7 +144,7 @@ psalm
 
 phpmd
 
-    phpmd src text ./phpmd.xml
+    phpmd src text vendor/bear/qatools/phpmd.xml
 
 phpmetrics
 

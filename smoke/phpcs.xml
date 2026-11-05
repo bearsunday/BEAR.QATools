@@ -1,9 +1,12 @@
 <?xml version="1.0"?>
 <!--
     Exercises the inheritance path: the standard is referenced by name, not
-    copied. If registration through dealerdirect/phpcodesniffer-composer-installer
-    breaks, or BearSunday/ruleset.xml stops being a valid standalone ruleset,
-    phpcs fails here.
+    copied. Once the workflow's smoke job is in place, a break in registration
+    through dealerdirect/phpcodesniffer-composer-installer, or in
+    BearSunday/ruleset.xml as a standalone ruleset, fails here.
+
+    No top-level <exclude-pattern>: those match the whole absolute path, and this
+    fixture is checked out wherever CI puts it.
 -->
 <ruleset
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

@@ -17,15 +17,22 @@
     <arg name="parallel" value="80"/>
     <arg name="cache" value=".phpcs-cache"/>
 
-    <!-- Compatibility with PHP 7.4.0 -->
+    <!-- Lowest PHP version you support. Without it phpcs assumes the PHP it
+         happens to be running on, so results differ between CI legs. -->
     <config name="php_version" value="70400"/>
 
     <!-- Ignore warnings, show progress of the run and show sniff names -->
     <arg value="nps"/>
 
-    <!-- Directories to be checked -->
+    <!-- Directories to be checked. These patterns are matched against the whole
+         absolute path, unanchored and case-insensitively, so */tmp/* also skips
+         src/Tmp/ and skips everything if the checkout itself lives under /tmp.
+         Narrow them to your layout if that bites; they are kept as they were
+         before the BearSunday standard was split out. -->
     <file>src</file>
     <file>tests</file>
+    <exclude-pattern>*/Fake/*</exclude-pattern>
+    <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/tests/tmp/*</exclude-pattern>
 
     <rule ref="BearSunday"/>

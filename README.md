@@ -27,29 +27,29 @@ Local install
 PHP_CodeSniffer, PHPStan and PHPMD are configured by reference rather than by
 copying, so fixes to the shared rules reach your project with `composer update`.
 
+The `vendor/bear/qatools/` paths below assume the local install above. A global
+install puts the package outside your project, so adjust the paths to wherever
+`composer global config home` reports, or install locally.
+
 **PHP_CodeSniffer** — `bear/qatools` registers itself as a standard named
 `BearSunday`, so your `phpcs.xml` only needs to name it:
 
-```xml
-<ruleset>
-    <file>src</file>
-    <file>tests</file>
+    <ruleset>
+        <file>src</file>
+        <file>tests</file>
 
-    <rule ref="BearSunday"/>
-</ruleset>
-```
+        <rule ref="BearSunday"/>
+    </ruleset>
 
 **PHPStan** — include the shared settings and add your own paths:
 
-```neon
-includes:
-    - vendor/bear/qatools/phpstan-base.neon
+    includes:
+        - vendor/bear/qatools/phpstan-base.neon
 
-parameters:
-    paths:
-        - src
-        - tests
-```
+    parameters:
+        paths:
+            - src
+            - tests
 
 **PHPMD** — point at the shipped ruleset directly, no local file needed:
 

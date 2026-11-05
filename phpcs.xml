@@ -2,11 +2,11 @@
 <!--
     A project configuration built on the BearSunday standard.
 
-    Everything below this comment is project-local: which directories to scan
-    and how to run. The rules themselves live in BearSunday/ruleset.xml and are
-    pulled in by the single <rule ref="BearSunday"/> line, so updates to the
-    standard arrive with `composer update` instead of needing this file to be
-    copied again.
+    This is a template to copy into a project. Everything below this comment is
+    project-local: which directories to scan and how to run. The rules themselves
+    live in BearSunday/ruleset.xml and are pulled in by the single
+    <rule ref="BearSunday"/> line, so updates to the standard arrive with
+    `composer update` instead of needing this file to be copied again.
 -->
 <ruleset
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

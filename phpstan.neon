@@ -1,14 +1,6 @@
-# A project configuration built on the shared settings.
-#
-# This is a template to copy into a project, where vendor/bear/qatools/ exists.
-# It does not resolve inside a checkout of this package: Composer never installs
-# the root package into its own vendor/. Nor could it be run here — the package
-# ships no src/ or tests/ for any of the tools in the `sa` script to analyse, so
-# that script, like these configs, is something a consumer copies rather than
-# something this repository runs.
-#
-# Everything below is project-local: which directories to analyse. The level
-# and any future shared settings come from phpstan-base.neon.
+# A project config built on the shared settings — copy it into a project, where
+# vendor/bear/qatools/ exists. It does not resolve in a checkout of this
+# package, which ships no src/ or tests/ to analyse anyway.
 includes:
   - vendor/bear/qatools/phpstan-base.neon
 

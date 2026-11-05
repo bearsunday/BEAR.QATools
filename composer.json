@@ -8,14 +8,14 @@
     "license": "MIT",
     "type": "phpcodesniffer-standard",
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.2.27",
         "doctrine/coding-standard": "^14.0",
         "phpmd/phpmd": "^2.11",
         "phpmetrics/phpmetrics": "^2.7",
         "phpstan/phpstan": "^2.1",
-        "phpunit/phpunit": "^9.6 || ^10.5 || ^11.3 || ^12.0",
+        "phpunit/phpunit": "^11.3 || ^12.0",
         "squizlabs/php_codesniffer": "^4.0",
-        "vimeo/psalm": "^4.2 || ^5.25 || ^6.11"
+        "vimeo/psalm": "^6.11"
     },
     "config": {
         "sort-packages": true,

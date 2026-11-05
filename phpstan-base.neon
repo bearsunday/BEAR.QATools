@@ -1,17 +1,5 @@
-# The shared PHPStan settings.
-#
-# This file carries no `paths`, so a consuming project can include it and keep
-# its own:
-#
-#     includes:
-#         - vendor/bear/qatools/phpstan-base.neon
-#     parameters:
-#         paths:
-#             - src
-#             - tests
-#
-# Including it means changes to the shared settings arrive with
-# `composer update` rather than needing phpstan.neon to be copied again.
-# phpstan.neon in the package root is a ready-made project config built on it.
+# The shared PHPStan settings. No `paths`, so a project can include this and
+# keep its own; including rather than copying means changes arrive with
+# `composer update`. phpstan.neon here is a project config built on it.
 parameters:
   level: max

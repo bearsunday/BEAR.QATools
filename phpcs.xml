@@ -1,13 +1,5 @@
 <?xml version="1.0"?>
-<!--
-    A project configuration built on the BearSunday standard.
-
-    This is a template to copy into a project. Everything below this comment is
-    project-local: which directories to scan and how to run. The rules themselves
-    live in BearSunday/ruleset.xml and are pulled in by the single
-    <rule ref="BearSunday"/> line, so updates to the standard arrive with
-    `composer update` instead of needing this file to be copied again.
--->
+<!-- A project config built on the BearSunday standard. Copy it into a project. -->
 <ruleset
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
@@ -17,18 +9,13 @@
     <arg name="parallel" value="80"/>
     <arg name="cache" value=".phpcs-cache"/>
 
-    <!-- Lowest PHP version you support. Without it phpcs assumes the PHP it
-         happens to be running on, so results differ between CI legs. -->
-    <config name="php_version" value="70400"/>
+    <!-- Compatibility with PHP 8.2.0 -->
+    <config name="php_version" value="80200"/>
 
     <!-- Ignore warnings, show progress of the run and show sniff names -->
     <arg value="nps"/>
 
-    <!-- Directories to be checked. These patterns are matched against the whole
-         absolute path, unanchored and case-insensitively, so */tmp/* also skips
-         src/Tmp/ and skips everything if the checkout itself lives under /tmp.
-         Narrow them to your layout if that bites; they are kept as they were
-         before the BearSunday standard was split out. -->
+    <!-- Directories to be checked -->
     <file>src</file>
     <file>tests</file>
     <exclude-pattern>*/Fake/*</exclude-pattern>

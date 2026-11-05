@@ -53,14 +53,22 @@ it.
         <rule ref="BearSunday"/>
     </ruleset>
 
+This minimal example reports warnings as well as errors. The `phpcs.xml` template
+below adds `<arg value="nps"/>`, which suppresses warnings, shows progress and
+names the sniff behind each report — the one reason the two can differ in output
+while using the same standard.
+
 Registration happens through `dealerdirect/phpcodesniffer-composer-installer`,
 which Composer only runs if your project allows it:
 
     composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 
-Without that, `phpcs` reports `Referenced sniff "BearSunday" does not exist`.
-Standard names are global across every installed standard, with no namespacing —
-`phpcs -e --standard=BearSunday` lists what the name actually resolved to.
+Without that, `composer install` either fails outright with a blocked-plugin
+error, or — if the plugin is allowed nowhere and explicitly denied — installs
+quietly and leaves `phpcs` reporting `Referenced sniff "BearSunday" does not
+exist`. Standard names are global across every installed standard, with no
+namespacing — `phpcs -e --standard=BearSunday` lists what the name actually
+resolved to.
 
 **PHPStan** — include the shared settings and add your own paths:
 

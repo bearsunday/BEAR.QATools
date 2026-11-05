@@ -2,10 +2,9 @@
 <!--
     The BearSunday coding standard.
 
-    This file holds rules only. It carries no <file>, <arg> or <config>
-    element, and no top-level <exclude-pattern>, so that a consuming project can
-    reference it with a single line and keep its own paths, runtime settings and
-    layout conventions:
+    This file holds rules only. It carries no <file> or <arg> element and no
+    top-level <exclude-pattern>, so that a consuming project can reference it
+    with a single line and keep its own paths and runtime settings:
 
         <rule ref="BearSunday"/>
 
@@ -16,6 +15,12 @@
     would silently skip src/Tmp/, and skip everything for anyone whose checkout
     lives under /tmp. Those patterns belong in the project's own ruleset;
     phpcs.xml here shows them.
+
+    Patterns scoped to a single sniff do stay here, since which rules apply to
+    which kind of file is part of the standard: the Doctrine block skips
+    tests/Fake, and PropertyTypeHint applies only under tests. They are
+    inherited and cannot be taken back either, so keep them to BEAR's
+    conventional layout.
 
     dealerdirect/phpcodesniffer-composer-installer registers this directory as
     a standard named after the directory itself, so no path is needed. PHPCS has

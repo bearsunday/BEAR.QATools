@@ -10,7 +10,7 @@
     "require": {
         "php": "^8.2.27",
         "doctrine/coding-standard": "^14.0",
-        "phpmd/phpmd": "^2.11",
+        "phpmd/phpmd": "^3.0",
         "phpmetrics/phpmetrics": "^2.7",
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^11.3 || ^12.0",
